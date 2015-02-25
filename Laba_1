@@ -7,54 +7,119 @@ using System.Threading.Tasks;
 
 namespace Laba_1 {
     class Program {
-        static void Main (string[] args) {
-        // 1-------------------------------------
-        int A=0, B=0, C=0;
-        /*Console.Write ( "--- 1 ---\nEnter value of   A: " );
-        A = int.Parse ( Console.ReadLine ( ) );
-        Console.Write ( "Enter value of B>A: " );
-        B = int.Parse ( Console.ReadLine ( ) );
-        C = A;
-        if ( A < B ) {
-            for ( int i = A; i <= B; i++ ) {
-                Console.WriteLine ( "{0}", C );
-                C += 1;
+        static void Main ( string[] args ) {
+            // 1-------------------------------------
+            int A = 0, B = 0, C = 0, count = 0, count2 = 0, TmpValue = 0; ;
+            int[] IntArr = new int[100];
+            char[] CharArr = new char[0];
+            string Line;
+            /*
+             Console.Write ( "--- 1 ---\nEnter value of   A: " );
+             A = int.Parse ( Console.ReadLine ( ) );
+             Console.Write ( "Enter value of B>A: " );
+             B = int.Parse ( Console.ReadLine ( ) );
+             count = A;
+             if ( A < B ) {
+                 for ( int i = A; i <= B; i++ ) {
+                     for ( int j = 0; j < count; j++ ) {
+                         Console.Write ( "{0}\t", count );
+                     }
+                     Console.WriteLine ();
+                     count += 1;
+                 }
+             } else { Console.WriteLine ( "Wrong value of B" ); }
+             /*
+             // 2-------------------------------------
+             int numOfSigns = 4;
+             Console.Write ( "\n--- 2 ---\nEnter num of strings: " );
+             A = int.Parse ( Console.ReadLine ( ) );
+             Console.WriteLine ( );
+             string alpha_string = "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
+             char[] alpha_char = alpha_string.ToCharArray ( );
+             for ( int i = 0; i < ( numOfSigns * A ); i++ ) {
+                 count2++;
+                 Console.Write ( "{0} ", alpha_char[count] );
+                 if ( count2 == 4 ) {
+                     Console.Write ( "\n" );
+                     count2 = 0;
+                 }
+                 count++;
+                 if ( count == 26 ) {
+                     count = 0;
+                 }
+             }
+             /*
+             // 3-------------------------------------
+             Console.Write ( "\n--- 3 ---\nEnter number value: " );
+             Line = Console.ReadLine ( );
+             CharArr = new char[Line.Length];
+             CharArr = Line.ToCharArray ( );
+             Console.WriteLine ( );
+             count = 0;
+             A = Line.Length - 1;
+             for ( int i = 0; i < ( A / 2 ); i++ ) {
+                 if ( CharArr[i] == CharArr[A - count] ) {
+                     count++;
+                     if ( count == A / 2 ) {
+                         Console.Write ( "It's polindrom\n" );
+                         break;
+                     }
+                 } else {
+                     Console.Write ( "It's not polindrom\n" );
+                     break;
+                 }
+             }
+              /*
+              // 4-------------------------------------
+              Console.WriteLine ( "\n--- 4 ---\n" );
+              A = 'e'; B = 'n';
+              Console.WriteLine ( "'e'={0} 'n'={1}",A,B );
+              for ( int i = A; i < B; i++ ) {
+                  if ( i % 7 == 0 ) {
+                      Console.WriteLine ( "Step {0}%7=0",i );
+                  }
+              }
+            /*
+            // 5-------------------------------------
+            Console.WriteLine ( "\n--- 5 ---\nEnter num of strings: " );
+            
+            /*
+            // 6-------------------------------------
+             Console.WriteLine ( "\n--- 6 ---\nRange from -5 to 5" );
+             A = -5; B = 5;
+             for ( int i = A; i < B; i++ ) {
+                 if ( i * 10 > A && i * 10 < B ) {
+                     Console.WriteLine ( "Step {0}*10={1}",i,i );
+                 }
+             }
+            /*
+            // 7-------------------------------------
+            Console.Write ( "\n--- 7 ---\nEnter number value: " );
+            Line = Console.ReadLine ( );
+            CharArr = new char[Line.Length];
+            CharArr = Line.ToCharArray ( );
+            Console.WriteLine ( );
+            count = 0; count2 = 0;
+            A = Line.Length;
+            for ( int i = 0; i < A; i++ ) {
+                if ( count > CharArr[i] ) {
+                    count = CharArr[i];
+                }
+                if ( count2 < CharArr[i] ) {
+                    count2 = CharArr[i];
+                }
             }
-        } else { Console.WriteLine ( "Wrong value of B" ); }
-        */
-        // 2-------------------------------------
-        int numOfSigns=4,count=0;
-        Console.Write("\n--- 2 ---\nEnter num of strings: ");
-        A=int.Parse(Console.ReadLine());
-        string alpha_string="ABCDEFGHIJKLMNOPQRSTUVWXYZ";
-        char[] alpha_char=alpha_string.ToCharArray();
-        for (int i=0; i<(numOfSigns*A); i++) {
-        Console.Write(alpha_char[count]);
-        if (alpha_char[count]%numOfSigns==0) {
-        Console.WriteLine();
-        }
-        if (count==25) {
-        count=0;
-        }
-        count++;
-        }
+            Console.Write ( "Min element={0}\nMax element={1}\n",count, count2 );
+            */
 
-        /*
-        // 3-------------------------------------
-        Console.WriteLine ( "\n--- 3 ---\nEnter num of strings: " );
-        // 4-------------------------------------
-        Console.WriteLine ( "\n--- 4 ---\nEnter num of strings: " );
-        // 5-------------------------------------
-        Console.WriteLine ( "\n--- 5 ---\nEnter num of strings: " );
-        // 6-------------------------------------
-        Console.WriteLine ( "\n--- 6 ---\nEnter num of strings: " );
-        // 7-------------------------------------
-        Console.WriteLine ( "\n--- 7 ---\nEnter num of strings: " );
-        // 8-------------------------------------
-        Console.WriteLine ( "\n--- 8 ---\nEnter num of strings: " );
-        // 9-------------------------------------
-        Console.WriteLine ( "\n--- 9 ---\nEnter num of strings: " );
-         * */
+             
+            // 8-------------------------------------
+             Console.WriteLine ( "\n--- 8 ---\nEnter num of strings: " );
+            
+            /*
+            // 9-------------------------------------
+             Console.WriteLine ( "\n--- 9 ---\nEnter num of strings: " );
+               */
         }
     }
 }
