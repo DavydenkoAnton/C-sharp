@@ -6,53 +6,59 @@ using System.Threading.Tasks;
 
 namespace _5._2 {
 
-
-
-
-
-
     class Fraction {
-        public int numerator;
-        public int denominator;
+        public double numerator;
+        public double denominator;
 
 
-        public Fraction() {
+        public Fraction ( ) {
             numerator = 0;
             denominator = 0;
         }
-        public Fraction(int num, int den) {
+        public Fraction ( int num, int den ) {
             numerator = num;
             denominator = den;
         }
-        public static Fraction operator *(Fraction f, int x) {
+        public static Fraction operator * ( Fraction f, int x ) {
             Fraction fract = new Fraction ( );
             fract.numerator = f.numerator * x;
-            fract.denominator = f.denominator * x;
+            fract.denominator = f.denominator;
             return fract;
         }
-        public static Fraction operator *(int x, Fraction f) {
+        public static Fraction operator * ( int x, Fraction f ) {
             Fraction fract = new Fraction ( );
             fract.numerator = f.numerator * x;
-            fract.denominator = f.denominator * x;
+            fract.denominator = f.denominator;
             return fract;
         }
 
-        public int separate(double x) {
+
+        public static Fraction operator + ( Fraction f, double x ) {
+            Fraction fract = new Fraction ( );
             double b = 0;
-            int count = 0;
+            double count = 0;
             int a = 0;
+
             do {
                 b *= 10;
                 a = ( int ) x;
                 b = x - a;
                 count++;
-            } while (b != 0);
-            return count;
-        }
+            } while ( b == 0 );
 
+            fract.numerator = x * ( 10 * count );//15
+            fract.denominator = Math.Pow ( 10, count );//10
+            double max = ( fract.denominator > f.denominator ) ? fract.denominator : f.denominator;
+            double min = ( fract.denominator < f.denominator ) ? fract.denominator : f.denominator;
+            b = max;
 
-        public static Fraction operator +(Fraction f, double x) {
-            Fraction fract = new Fraction ( );
+            do {
+                count = max % min;
+                max += b;
+            } while ( count == 0 );
+
+            fract.numerator = ( ( max / fract.denominator ) * fract.numerator ) + ( ( max / f.denominator ) * f.numerator );
+            fract.denominator = max;
             return fract;
         }
 
@@ -62,21 +68,16 @@ namespace _5._2 {
 
 
     class Program {
-        static void Main(string [] args) {
-            Fraction f1 = new Fraction (3, 4);
+        static void Main ( string[] args ) {
+            Fraction f = new Fraction ( 3, 6 );
             int a = 10;
-            Fraction f2 = f1 * a;
-            Fraction f3 = a * f1;
             double d = 1.5;
-
-           // int f = Fraction.
-                // Fraction f4=f1+d;
-            Console.WriteLine ("f2={0}/{1} ", f2.numerator, f2.denominator);
-            Console.WriteLine ("f3={0}/{1} ", f3.numerator, f3.denominator);
-            //Console.WriteLine ("f4={0}/{1} ", f4.numerator, f4.denominator);
-
-
-
+            Fraction f1 = f * a;
+            Console.WriteLine ( "f1={0}/{1} ", f1.numerator, f1.denominator );
+            Fraction f2 = a * f;
+            Console.WriteLine ( "f2={0}/{1} ", f2.numerator, f2.denominator );
+            Fraction f3 = f + d;
+            Console.WriteLine ( "f3={0}/{1} ", f3.numerator, f3.denominator );
 
 
 
