@@ -18,12 +18,20 @@ using System.Threading.Tasks;
 
 
 namespace Laba_6 {
+
+
+
+
     class Product {
         string name;
         int num;
         int price;
 
-        public Product() {
+        public Product(string nam, int num, int price)
+        {
+            this.name=nam;
+            this.num=num;
+            this.price=price;
         }
 
         public string NAME {
@@ -38,6 +46,7 @@ namespace Laba_6 {
             }
         }
 
+
         public int NUM {
             set {
                 if (value > 0)
@@ -49,6 +58,8 @@ namespace Laba_6 {
                 return num;
             }
         }
+
+
         public int PRICE {
             set {
                 if (value > 0)
@@ -61,45 +72,60 @@ namespace Laba_6 {
             }
         }
 
+    }
 
-        class Storage {
 
+
+
+
+
+        public class Storage {
+            static int count = 0;
             int numberOfProduct;
+            Product [] product;
 
 
-
-            public Storage() {
-
-
+            public Storage(int num) {
+                product = new Product [num];
             }
 
-            
+            /*public Storage(string nam,int num,int pric) {
+                
+            }*/
+
+            public void addProduct(string nam, int num, int price) {
+               
+                product [count++] = new Product (nam, num, price);
+                
+            }
 
 
 
+            public void  findProduct(string nam) {
+
+               for(int i=0;i<count;i++){
+
+               }
 
 
-
+                
+            }
 
         }
 
 
+    
 
-
-    }
+    
 
 
 
 
     class Program {
         static void Main(string [] args) {
-            Product prod1 = new Product ( );
-            prod1.NAME = "Meat";
-            prod1.NUM = 100;
-            prod1.PRICE = 120;
-            Console.WriteLine (@"Name  - {0}
-Num   - {1}
-Price - {2}", prod1.NAME, prod1.NUM, prod1.PRICE);
+
+            Storage prod = new Storage(100); 
+            prod.addProduct("Apple",20,45);
 
 
 
